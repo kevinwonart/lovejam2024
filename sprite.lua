@@ -6,9 +6,6 @@ local spriteWidth, spriteHeight = 64, 64
 
 --"src/sprites/spritesheetalpha-Sheet.png"
 
-
-
-
 local imageWidth, imageHeight = Sprite.image:getDimensions()
 
 Sprite.quads = {}
@@ -23,6 +20,7 @@ for i = 0, rows - 1 do
 end
 
 function Sprite:draw(index, x, y)
+  --print(index)
   if index >=1 and index <= #Sprite.quads then
     love.graphics.draw(Sprite.image, Sprite.quads[index], x, y)
   end

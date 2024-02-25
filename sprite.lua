@@ -25,3 +25,8 @@ function Sprite:draw(index, x, y)
     love.graphics.draw(self.image, self.quads[index], x, y)
   end
 end
+
+--[[function Sprite:draw()
+  love.graphics.draw(self.image, self.quads[1], 100, 100)
+  end
+--]]

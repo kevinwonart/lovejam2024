@@ -6,7 +6,9 @@ function love.load()
 end
 
 function love.draw()
-  sprite:draw(91,100,100)
+  sprite:draw(1,100,36)
+  sprite:draw(28,100,100)
+  sprite:draw(63,136,36)
 end
 
 

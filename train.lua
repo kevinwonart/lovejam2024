@@ -4,36 +4,35 @@ local Sprite = require "sprite"
 Train = Object:extend()
 
 function Train:new()
-    self.spacing = 64
-    self.sprite = Sprite
+  self.spacing = 64
+  self.sprite = Sprite
+  self.quadIndices = { 64, 73, 64, 75 }
+  self.spacing = 64
+  self.headWheelIndex =  76
+  self.wheelIndex = 77
+  self.wheelOffsetX = 6
+  self.wheelOffsetY = 19
+  self.headWheelOffsetX = 5
+  self.headWheelOffsetY = 19
+  self.turretIndex = 78
+  self.turretOffsetX = 19
+  self.turretOffsetY = -20
 end
 
 function Train:draw(x, y)
-  local quadIndices = { 64, 73, 64, 75 }
-  local spacing = 64
-  local headWheelIndex =  77
-  local wheelIndex = 76
-  local wheelOffsetX = 2
-  local wheelOffsetY = 19
-  local headWheelOffsetX = 12
-  local headWheelOffsetY = 15
-  local turretIndex = 78
-  local turretOffsetX = 19
-  local turretOffsetY = -20
-
   for i, index in ipairs(quadIndices) do
     --Draws wheels head
     if index == 75 then
-      local headWheelPosX = (x + (i - 1) * spacing) + headWheelOffsetX
-      local headWheelPosY = y + wheelOffsetY
-      self.sprite:draw(headWheelIndex, headWheelPosX, headWheelPosY)
+      self.headWheelPosX = (x + (i - 1) * spacing) + self.headWheelOffsetX
+      self.headWheelPosY = y + wheelOffsetY
+      self.sprite:draw(self.headWheelIndex, self.headWheelPosX, self.headWheelPosY)
     end
 
     --Draws wheels body
     if index == 64 or index == 73 then
-      local wheelPosX = (x + (i - 1) * spacing) + wheelOffsetX
-      local wheelPosY = y + wheelOffsetY
-      self.sprite:draw(wheelIndex, wheelPosX, wheelPosY)
+      local wheelPosX = (x + (i - 1) * spacing) + self.wheelOffsetX
+      local wheelPosY = y + self.wheelOffsetY
+      self.sprite:draw(self.wheelIndex, self.wheelPosX, self.wheelPosY)
     end
     --[[
       --Debug console:
@@ -48,9 +47,9 @@ function Train:draw(x, y)
 
     --Draws turret
     if index == 73 then
-      local turretPosX = (x + (i - 1) * spacing) + turretOffsetX
-      local turretPosY = y + turretOffsetY
-      self.sprite:draw(turretIndex, turretPosX, turretPosY)
+      local turretPosX = (x + (i - 1) * spacing) + self.turretOffsetX
+      local turretPosY = y + self.turretOffsetY
+      self.sprite:draw(self.turretIndex, turretPosX, turretPosY)
     end
 
   end

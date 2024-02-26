@@ -1,5 +1,4 @@
 Object = require "classic/classic"
-local Sprite = require "sprite"
 
 Track = Object:extend()
 

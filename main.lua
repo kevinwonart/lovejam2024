@@ -15,18 +15,19 @@ function love.load()
   titleLogo = love.graphics.newImage("src/title1.png")
   title = Title(function()
     gameState = "game"
+    print("works")
   end)
-  player = Train()
+  player = Train(-224, 397)
   map = Map(12, 9)--12x64,9x64 tiles
   track = Track()
-  game = Game()
+  game = Game(player)
 end
 
 function love.update(dt)
   if gameState == "title" then
-    --gameTitle.call
+    --title:update(dt)
   elseif gameState == "game" then
-    --gameState.call
+    game:update(dt)
   end
 end
 
@@ -39,7 +40,7 @@ function love.draw()
   if gameState == "title" then
     title:draw()
   elseif gameState == "game" then
-    game:draw()
+    game:draw(player)
   end
 end
 

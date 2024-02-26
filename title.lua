@@ -12,7 +12,7 @@ function Title:new(onPlayPressed)
   self.playButtonHoverIndex = 62
   self.playButtonX = 352
   self.playButtonY = 240
-  self.onplayPressed = onPlayPressed
+  self.onPlayPressed = onPlayPressed
 end
 
 function Title:mousepressed(x, y, button)

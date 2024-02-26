@@ -1,6 +1,5 @@
 Object = require "classic/classic"
 local Sprite = require "sprite"
-local Map = require "map"
 
 Game = Object:extend()
 

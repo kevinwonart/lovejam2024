@@ -19,8 +19,7 @@ function love.load()
   player = Train()
   map = Map(12, 9)--12x64,9x64 tiles
   track = Track()
-  --
-  --gameMap = Map()
+  game = Game()
 end
 
 function love.update(dt)

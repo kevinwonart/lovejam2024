@@ -9,11 +9,15 @@ function love.load()
   require "map"
   require "track"
   require "title"
+  require "game"
+
   math.randomseed(os.time())
   titleLogo = love.graphics.newImage("src/title1.png")
-  title = Title()
+  title = Title(function()
+    gameState = "game"
+  end)
   player = Train()
-  map = Map(12, 9)
+  map = Map(12, 9)--12x64,9x64 tiles
   track = Track()
   --
   --gameMap = Map()
@@ -36,12 +40,12 @@ function love.draw()
   if gameState == "title" then
     title:draw()
   elseif gameState == "game" then
-    title:draw()
+    game:draw()
   end
 end
 
---[[
-function love.mouse.isDown()
-   something
+function love.mousepressed(x, y, button)
+  if gameState == "title" then
+    title:mousepressed(x, y, button)
+  end
 end
---]]
